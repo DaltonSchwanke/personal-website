@@ -1,1 +1,111 @@
-<p>resume works!</p>
+<div class="container text-center">
+    <button (click)="DownloadFile()" class="btn btn-primary mb-4 mt-2 shadow border">Download PDF Resume</button>
+
+    <div class="pb-5">
+        <accordion [isAnimated]="true" class="shadow">
+            <accordion-group [(isOpen)]="isWorkExperienceOpen">
+                <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
+                    <div style="visibility: hidden;">></div>
+                    <div class="btn-link">Work Experience</div>
+                    <div style="width: 10.09px;">
+                        <div *ngIf="!isWorkExperienceOpen" style="color:white">></div>
+                        <div *ngIf="isWorkExperienceOpen" style="color:white">v</div>
+                    </div>
+                </button>
+                <div style="text-align: left;">
+                    <h2 class="mb-0">Technology Intern</h2>
+                    <h3 class="text-primary">VML, Minneapolis, MN</h3>
+                    <p>As a intern at VML I worked on various intern websites that tracked retailer and vendor capabilities and previous work</p>
+                </div>
+                <div style="text-align: left;">
+                    <h2 class="mb-0">Property Manager</h2>
+                    <h3 class="text-primary">Wayzata, MN</h3>
+                    <p>I maintain a property in Wayzata on Lake Minnetonka. I commonly corredinate vendors, construction crimes and a variety of other workers
+                        to maintain the property and have it live up to the owners wants and needs. 
+                    </p>    
+                </div>
+                <div style="text-align: left;">
+                    <h2 class="mb-0">Automotive Detailer</h2>
+                    <h3 class="text-primary">Audi, St.Paul</h3>
+                    <p>At Audi I served as a Automotive Detailer as well as a being a service runner and car loaner. I would ensure that contracts are filled out properly and tools are 
+                        maintained in the shop, along with drive to other locations and dealerships to pick up parts when needed. For detailing I would have to buff cars and prep them for the
+                        showroom floor and reclean them so that they were ready for delivery whenever a customer bought one. 
+                    </p>
+                </div>
+                <div style="text-align: left;">
+                    <h2 class="mb-0">Target Team Member</h2>
+                    <h3 class="text-primary">Target, Lino Lakes</h3>
+                    <p>My first job was at Target in Lino Lakes. There I would stock shelves as well as help customers find the goods that they were looking for. I would have to work as a team 
+                        to ensure that the stocks were always supplied with what we had on hand and help out in other departments when needed. 
+                    </p>
+                </div>
+            </accordion-group>
+            <accordion-group [(isOpen)]="isEducationOpen">>
+                <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
+                    <div style="visibility: hidden;">></div>
+                    <div class="btn-link">Education</div>
+                    <div style="width: 10.09px;">
+                        <div *ngIf="!isEducationOpen" style="color:white">></div>
+                        <div *ngIf="isEducationOpen" style="color:white">v</div>
+                    </div>
+                </button>
+                <div>HELLo</div>
+                <div style="text-align: left;">
+                    <h2 class="mb-0">University of St. Thomas</h2>
+                    <h3 class="text-primary">St. Paul, MN</h3>
+                    <p>At the University of St. Thomas I study computer science and started attending the school shortly after getting my Associates of Science at Century College. I am set
+                        to graduate from St. Thomas in Decemeber of 2024!
+                    </p>
+                </div>
+                <div style="text-align: left;">
+                    <h2 class="mb-0">Century College</h2>
+                    <h3 class="text-primary">White Bear, Mn</h3>
+                    <p> I started my college journey at Century College intending to get a degree in mechanical engineering. Around this time the pandemic hit and I had to learn how to adapt
+                        to online courses which was something completely foreign to me at the time. At the start of my 3rd year I changed degree paths to computer science and got my Associates 
+                        of Science before transferring. 
+                    </p>
+                </div>
+            </accordion-group>
+            <accordion-group [(isOpen)]="isSkillsOpen">>
+                <button class="btn btn-block justify-content-between d-flex w-100" accordion-heading>
+                    <div style="color: transparent;">></div>
+                    <div class="btn-link">Skills</div>
+                    <div style="width: 10.09px;">
+                        <div *ngIf="!isSkillsOpen" style="color:white">></div>
+                        <div *ngIf="isSkillsOpen" style="color:white">v</div>
+                    </div>
+                </button>
+                <div class="row" style="text-align: left;">
+                    <div class="col">
+                        <h3>Programming Languages:</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>SQLite</li>
+                            <li>Javascript</li>
+                            <li>Typescript</li>
+                            <li>Java</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>Frameworks:</h3>
+                        <ul>
+                            <li>Angular</li>
+                            <li>Node.JS</li>
+                            <li>Vue.JS</li>
+                            <li>P5.JS</li>
+                            <li>Express</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>Other Skills</h3>
+                        <ul>
+                            <li>Database Management</li>
+                            <li>Git</li>
+                            <li>Front End Styling</li>
+                        </ul>
+                    </div>
+                </div>
+            </accordion-group>
+        </accordion>
+    </div>
+</div>

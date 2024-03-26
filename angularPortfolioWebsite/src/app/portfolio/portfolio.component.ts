@@ -1,21 +1,64 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Project } from '../_models/Project';
 import { Tag } from '../_models/tag';
+import { ProjectsService } from '../_services/projects.service';
 
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.css']
 })
-export class PortfolioComponent {
-  projects: Project[] = [
-    {id: 0, name: "Angular Project", summary: "This is a test for my Angular Project", description: "This is a decription test for my Angular Project", projectLink: '', tags: [Tag.ANGULAR, Tag.TYPESCRIPT], pictures: []},
-    {id: 1, name: "Python Project", summary: "This is going to be a Python Project", description: "This is where the python project info will be", projectLink: '', tags: [Tag.PYTHON], pictures: []},
-    {id: 2, name: "P5.js Project", summary: "This is a project that used P5.js", description: "The description will go here", projectLink: '', tags: [Tag.JAVA], pictures: []},
-  ];
+export class PortfolioComponent implements OnInit {
 
-  constructor(private titleService: Title){
+
+  projects = {} as Project[];
+  filtering: boolean = false;
+  isCollapsed: boolean = true;
+  typescript : boolean = false;
+  angular: boolean = false;
+  python: boolean = false;
+  java : boolean = false;
+
+
+  constructor(private titleService: Title, private projectService: ProjectsService){
     this.titleService.setTitle("Dalton's Website - Portfolio");
+  }
+  ngOnInit(): void {
+    this.projects = this.projectService.GetProjects();
+    console.log(this.projects);
+  }
+
+  filter(){
+    let filterTags: Tag[] = [];
+    if(this.angular){
+      filterTags.push(Tag.ANGULAR);
+    }
+    if(this.typescript){
+      filterTags.push(Tag.TYPESCRIPT);
+    }
+    if(this.python){
+      filterTags.push(Tag.PYTHON);
+    }
+    if(this.java){
+      filterTags.push(Tag.JAVA);
+    }
+    if(this.angular || this.typescript || this.python || this.java){
+      this.filtering = true;
+    } else{
+      this.filtering = false;
+    }
+
+    this.projects = this.projectService.GetProjectsByFilter(filterTags);
+  }
+
+  ResetFilters(){
+    this.typescript = false;
+    this.angular = false;
+    this.python = false;
+    this.java = false;
+    this.filtering = false;
+
+    this.projects = this.projectService.GetProjects();
   }
 }
